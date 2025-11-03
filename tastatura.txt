@@ -1,2 +1,6 @@
-5
-11 22 33 44 55
+3
+Guitar 1200.5 10 Instrument
+Vinyl_Beatles 150 20 Vinyl
+CD_Queen 80 15 CD
+Ion Popescu ion.popescu@mail.com cumparator
+Str._Muzicii_nr._10
