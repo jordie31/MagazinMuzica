@@ -173,4 +173,5 @@ int main() {
     cout << "=== Order ===\n" << order << "\n";
     cout << "Inventory value: " << shop.calculateInventoryValue() << " RON\n";
     return 0;
+
 }
