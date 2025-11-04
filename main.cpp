@@ -12,7 +12,7 @@ class Product {
     string name;
     float price;
     int stock;
-    string type; // Instrument, vinyl, cd etc
+    string type; // instrument, vinyl, cd etc.
 
 public:
     //constructorul cu toti parametrii
@@ -171,6 +171,9 @@ public:
 //initializarea variabilei statice
 int Shop::generalID = 1;
 
+
+
+
 int main() {
     ifstream fin("tastatura.txt"); // fac legatura cu fisierul tastatura.txt
     if (!fin.is_open()) { // testez daca s a putut deschide fisierul
@@ -221,13 +224,18 @@ int main() {
         return 1;
     }
 
-    //creez comanda
+    //creez comanda (am scazut stocul de dinainte sa fac comanda ca sa se afiseze cu stocul deja scazut)
+    products[0].reduceStock(1);  // scadem 1 bucata din primul produs
+    products[2].reduceStock(1);  // scadem 1 bucata din al treilea produs
+
     Order order(user, {products[0], products[2]});
     fin.close();
 
+    Shop updatedShop(address, products);
+
     cout << "=== Shop ===\n" << shop << "\n";
     cout << "=== Order ===\n" << order << "\n";
-    cout << "Inventory value: " << shop.calculateInventoryValue() << " RON\n";
-
+    cout << "Inventory value before order: " << shop.calculateInventoryValue() << " RON\n";
+    cout << "Inventroy value after order: " << updatedShop.calculateInventoryValue() << " RON\n";
     return 0;
 }
