@@ -58,6 +58,12 @@ add_executable(${MAIN_EXECUTABLE_NAME}
         Order.h
         Shop.cpp
         Shop.h
+        Media.cpp
+        Media.h
+        Instrument.cpp
+        Instrument.h
+        MusicBook.cpp
+        MusicBook.h
 )
 
 # NOTE: Add all defined targets (e.g. executables, libraries, etc. )

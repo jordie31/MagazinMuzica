@@ -1,7 +1,3 @@
-//
-// Created by Irina on 12/6/2025.
-//
-
 #include "User.h"
 
 int User::generalID = 1;
@@ -17,7 +13,7 @@ const std :: string & User :: getEmail() const { return email; }
 const std :: string & User :: getRole() const { return role; }
 
 //supraincarea operatorului de afisare
-friend std :: ostream & User :: operator <<(std :: ostream &os, const User &obj) {
+std :: ostream & operator <<(std :: ostream &os, const User &obj) {
     return os << "ID: " << obj.ID
               << " | Name: " << obj.firstName << " " << obj.lastName
               << " | Email: " << obj.email
