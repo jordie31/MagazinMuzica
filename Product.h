@@ -2,6 +2,10 @@
 #define OOP_PRODUCT_H
 #include <string>
 #include <iostream>
+#include <memory>
+#include "ProductExceptions.h"
+
+
 class Product {
     static int generalID; // id ul care tine evidenta numarui de obiecte instantiate
     const int ID; // id ul personal al obiectului
@@ -32,7 +36,16 @@ public:
     int getStock() const;
     int getID() const;
 
-    virtual std :: string showDetails() const;
+    //functii virtuale pt polimorfism
+    //returnează tipul obiectului (ex: Instrument, Media, MusicBook)
+    virtual std::string getType() const = 0;
+
+    //afișare detalii virtuala
+    virtual std::string showDetails() const;
+
+    //copiere polimorfa (obligatoriu pentru vector<unique_ptr<Product>>)
+    virtual std::unique_ptr<Product> clone() const = 0;
+
     //supraincarcarea operatorului de afisare
     friend std :: ostream &operator<<(std :: ostream &os, const Product &obj);
 };

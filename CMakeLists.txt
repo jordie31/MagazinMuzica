@@ -64,6 +64,8 @@ add_executable(${MAIN_EXECUTABLE_NAME}
         Instrument.h
         MusicBook.cpp
         MusicBook.h
+        ProductExceptions.cpp
+        ProductExceptions.h
 )
 
 # NOTE: Add all defined targets (e.g. executables, libraries, etc. )

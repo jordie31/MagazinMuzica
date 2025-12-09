@@ -1,6 +1,5 @@
-3
-Guitar 1200.5 10 Instrument
-Vinyl_Beatles 150 20 Vinyl
-CD_Queen 80 15 CD
-Ion Popescu ion.popescu@mail.com cumparator
-Str._Muzicii_nr._10
+MEDIA Album1 50 10 CD
+INSTRUMENT Chitara 350 5 Lemn
+MUSICBOOK Teorie 40 15 120 Popescu
+MEDIA CasetaVeche 30 2 Caseta
+INSTRUMENT Pian 5000 1 Metal

@@ -1,27 +1,34 @@
 #include "Order.h"
 
-//constructor cu toti parametrii
-Order :: Order(const User &buyer, const std :: vector<Product> &products)
-    : ID(generalID++), buyer(buyer), products(products) {
+// Initializare id static
+int Order::generalID = 1;
+
+// Constructor
+Order::Order(const User &buyer, std::vector<std::unique_ptr<Product>> products)
+    : ID(generalID++), buyer(buyer)
+{
+    // Mut pointerii in vectorul comenzii
+    for (auto &p : products)
+        this->products.push_back(std::move(p));
+
     calculateTotal();
 }
-// calculeaza pretul total al produselor din comanda
-void Order :: calculateTotal() {
+
+// Calculeaza totalul
+void Order::calculateTotal() {
     totalPrice = 0;
-    // parcurgerea vectorului de produse si adaugarea pretului fiecarui produs la suma totala
     for (const auto &p : products)
-        totalPrice += p.getPrice();
-
+        totalPrice += p->getPrice() * p->getStock(); // poti ajusta dupa nevoie (ex: cantitate)
 }
-// getter
-float Order :: getTotal() const { return totalPrice; }
 
-// supraincarcarea operatorului de afisare
-std ::  ostream & operator<<(std :: ostream &os, const Order &obj) {
+// Getter total
+float Order::getTotal() const { return totalPrice; }
+
+// Afisare comanda
+std::ostream &operator<<(std::ostream &os, const Order &obj) {
     os << "Order ID: " << obj.ID << "\nBuyer: " << obj.buyer << "\nProducts:\n";
-    for (const auto &p : obj.products) os << "   " << p << "\n";
+    for (const auto &p : obj.products)
+        os << "   " << p->showDetails() << "\n";
     os << "Total price: " << obj.totalPrice << "\n";
     return os;
 }
-//instantierea variabilei statice
-int Order::generalID = 1;
