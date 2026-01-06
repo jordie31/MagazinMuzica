@@ -3,6 +3,7 @@
 Aceasta este o aplicație pentru gestionearea online a unui magazin de muzică, de unde utilizatorul poate cumpăra CD-uri, casete, vinyl-uri, dar și instrumente. Acesta va putea verifica prețul, stocul și detaliile fiecărui produs, va putea plasa comenzi și își va putea face cont, unde va putea vedea istoricul comenzilor date.
 
 # Clasele folosite 
+Fiecare clasă are set-eri și get-eri, constructori și descructori și helper functions. 
 
 - User
 - Shop
@@ -12,4 +13,3 @@ Aceasta este o aplicație pentru gestionearea online a unui magazin de muzică, 
   - Music Book
 - Order
 
-Fiecare clasă are set-eri și get-eri, constructori și descructori și helper functions. 
