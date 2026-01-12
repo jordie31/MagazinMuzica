@@ -12,14 +12,14 @@ void Shop::addProduct(std::unique_ptr<Product> p) {
 }
 
 //sterge produs dupa nume
-void Shop::removeProductByName(const std::string &name) {
+/*void Shop::removeProductByName(const std::string &name) {
     for (auto it = products.begin(); it != products.end(); ) {
         if ((*it)->getName() == name)
             it = products.erase(it);
         else
             ++it;
     }
-}
+}*/
 
 //calculeaza pretul total al comenzii
 float Shop::calculateInventoryValue() const {

@@ -29,7 +29,7 @@ std::unique_ptr<Product> Instrument :: clone() const  {
     };
 
 // getter
- std::string& Instrument :: getMaterial()  { return material; }
+ //std::string& Instrument :: getMaterial()  { return material; }
 
 std::string Instrument :: getType()   {
         return "Instrument";

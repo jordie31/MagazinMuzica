@@ -39,7 +39,7 @@ Product &Product::operator=(const Product &other) {
 }
 
 //reduce stocul
-void Product::reduceStock(int amount) {
+/*void Product::reduceStock(int amount) {
 
     //validari
     if (amount <= 0)
@@ -49,7 +49,7 @@ void Product::reduceStock(int amount) {
         throw ProductException("Nu este destul stoc pentru a fi eliminat");
 
     stock -= amount;
-}
+}*/
 
 // getters
 float Product::getPrice()  { return price; }

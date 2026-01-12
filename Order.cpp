@@ -22,7 +22,7 @@ void Order::calculateTotal() {
 }
 
 // Getter total
-float Order::getTotal() const { return totalPrice; }
+//float Order::getTotal() const { return totalPrice; }
 
 // Afisare comanda
 std::ostream &operator<<(std::ostream &os, const Order &obj) {

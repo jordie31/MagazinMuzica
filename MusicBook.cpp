@@ -30,9 +30,9 @@ std::string MusicBook::showDetails()  {
 std::string MusicBook :: getType()   {
         return "MusicBook";
     };
-int MusicBook ::  getNumberOfPages()  { return numberOfPages; };
+//int MusicBook ::  getNumberOfPages()  { return numberOfPages; };
 
- std::string  MusicBook :: getAuthor()  { return author; };
+// std::string  MusicBook :: getAuthor()  { return author; };
 
     // clone
 std::unique_ptr<Product> MusicBook :: clone() const  {

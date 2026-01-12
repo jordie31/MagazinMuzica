@@ -15,15 +15,15 @@ public:
     ~Media() override;
 
     // getteri
-    std::string getType()   ;
+    std::string getType()  override;
 
-     std::string& getFormat() ;
+     //std::string& getFormat() ;
 
     // clone
-    std::unique_ptr<Product> clone() const  ;
+    std::unique_ptr<Product> clone() const override;
 
     // functie de show
-    std::string showDetails()  ;
+    std::string showDetails()  override;
 
 
 };

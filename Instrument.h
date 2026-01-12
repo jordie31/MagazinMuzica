@@ -14,16 +14,16 @@ public:
     ~Instrument() override;
 
     // tipul produsului
-    std::string getType() ;
+    std::string getType() override;
 
     // copiere polimorfa
-    std::unique_ptr<Product> clone() const ;
+    std::unique_ptr<Product> clone() const override;
 
     // detalii specifice
-    std::string showDetails()  ;
+    std::string showDetails()  override;
 
     // getter optional
-     std::string& getMaterial() ;
+     //std::string& getMaterial() ;
 };
 
 #endif // INSTRUMENT_H

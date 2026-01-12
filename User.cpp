@@ -9,8 +9,8 @@ User :: User(const std :: string &first_name, const std :: string &last_name, co
 User :: ~User() = default;
 
 //getteri
-const std :: string & User :: getEmail() const { return email; }
-const std :: string & User :: getRole() const { return role; }
+//const std :: string & User :: getEmail() const { return email; }
+//const std :: string & User :: getRole() const { return role; }
 
 //supraincarea operatorului de afisare
 std :: ostream & operator <<(std :: ostream &os, const User &obj) {

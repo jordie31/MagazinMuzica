@@ -21,7 +21,7 @@ public:
     Shop(const std::string &address);
 
     void addProduct(std::unique_ptr<Product> p);
-    void removeProductByName(const std::string &name);
+    //void removeProductByName(const std::string &name);
 
     float calculateInventoryValue() const;
     void ProductTypes() const;

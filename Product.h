@@ -28,7 +28,7 @@ public:
     Product &operator=(const Product &other);
 
     // reduce stocul
-    void reduceStock(int amount);
+   // void reduceStock(int amount);
 
     //getteri
     float getPrice() ;

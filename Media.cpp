@@ -28,7 +28,7 @@ std::string Media :: getType()   {
         return "Media";
     };
 
- std::string& Media :: getFormat()  { return format; }
+ //std::string& Media :: getFormat()  { return format; }
 
 // clone
 std::unique_ptr<Product> Media :: clone() const  {

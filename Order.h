@@ -19,7 +19,7 @@ public:
     // calculeaza pretul total al produselor din comanda
     void calculateTotal();
     // getter
-    float getTotal() const;
+    //float getTotal() const;
 
     // supraincarcarea operatorului de afisare
     friend std :: ostream &operator<<(std :: ostream &os, const Order &obj);

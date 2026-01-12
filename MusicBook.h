@@ -15,17 +15,17 @@ public:
     ~MusicBook() override;
 
     // getteri
-    std::string getType()  ;
+    std::string getType()  override;
 
-    int getNumberOfPages()  ;
+    //int getNumberOfPages()  ;
 
-     std::string getAuthor()  ;
+     //std::string getAuthor()  ;
 
     // clone
-    std::unique_ptr<Product> clone() const ;
+    std::unique_ptr<Product> clone() const override;
 
     // functia show
-    std::string showDetails()  ;
+    std::string showDetails() override ;
 
 };
 
