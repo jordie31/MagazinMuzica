@@ -6,8 +6,11 @@
 #include "Media.h"
 #include "Instrument.h"
 #include "MusicBook.h"
-
+#include "Factory.h"
+#include "Logger.h"
+Logger logger("log.txt");
 int main() {
+    logger.log("Text");
     std::ifstream fin("tastatura.txt");
     if (!fin) {
         std::cerr << "Nu pot deschide tastatura.txt\n";
@@ -24,7 +27,7 @@ int main() {
                 float price;
                 int stock;
                 fin >> name >> price >> stock >> format;
-                shop.addProduct(std::make_unique<Media>(name, price, stock, format));
+                shop.addProduct(Factory :: createMedia(name, price, stock, format));
             }
             else if (type == "INSTRUMENT") {
                 std::string name, material;

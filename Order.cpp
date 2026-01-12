@@ -8,9 +8,10 @@ Order::Order(const User &buyer, const std::vector<Product*> products)
     : ID(generalID++), buyer(buyer)
 {
     // Mut pointerii in vectorul comenzii
-    for (auto &p : products)
+    for (auto &p : products){
         this->products.push_back(p);
-
+        onAddProduct(p);
+    }
     calculateTotal();
 }
 
@@ -23,6 +24,16 @@ void Order::calculateTotal() {
 
 // Getter total
 //float Order::getTotal() const { return totalPrice; }
+// getter id
+//int Order :: getID(){return ID;};
+
+void Order :: onAddProduct(Product *product){
+    std :: string msg = "[INFO] S-a adaugat in order-ul cu id-ul: ";
+    msg += std :: to_string(ID); // adaujga id ul orderului
+    msg += " produsul cu id-ul: ";
+    msg += std :: to_string(product->getID()); // adauga id ul produsului
+    logger.log(msg);
+};
 
 // Afisare comanda
 std::ostream &operator<<(std::ostream &os, const Order &obj) {
