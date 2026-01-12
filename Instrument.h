@@ -7,27 +7,23 @@ class Instrument : public Product {
     std::string material;  // ex: Lemn, Metal, Plastic
 
 public:
-    // Constructor corect (include material)
+    // constructor
     Instrument(const std::string &name, float price, int stock, const std::string &material);
 
-    // Destructor
+    // destructor
     ~Instrument() override;
 
-    // Tipul produsului
-    std::string getType() const override {
-        return "Instrument";
-    }
+    // tipul produsului
+    std::string getType() ;
 
-    // Copiere polimorfa
-    std::unique_ptr<Product> clone() const override {
-        return std::make_unique<Instrument>(*this);
-    }
+    // copiere polimorfa
+    std::unique_ptr<Product> clone() const ;
 
-    // Detalii specifice
-    std::string showDetails() const override;
+    // detalii specifice
+    std::string showDetails()  ;
 
     // getter optional
-    const std::string& getMaterial() const { return material; }
+     std::string& getMaterial() ;
 };
 
 #endif // INSTRUMENT_H

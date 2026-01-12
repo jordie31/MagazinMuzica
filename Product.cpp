@@ -52,13 +52,13 @@ void Product::reduceStock(int amount) {
 }
 
 // getters
-float Product::getPrice() const { return price; }
-const std::string &Product::getName() const { return name; }
-int Product::getStock() const { return stock; }
-int Product::getID() const { return ID; }
+float Product::getPrice()  { return price; }
+const std::string &Product::getName()  { return name; }
+int Product::getStock()  { return stock; }
+int Product::getID()  { return ID; }
 
-//detaliile
-std::string Product::showDetails() const {
+// functia de show
+std::string Product::showDetails()  {
     return "ID: " + std::to_string(getID()) +
            " | Name: " + getName() +
            " | Price: " + std::to_string(getPrice()) +
@@ -66,6 +66,8 @@ std::string Product::showDetails() const {
 }
 
 // operatorul <<
-std::ostream &operator<<(std::ostream &os, const Product &obj) {
-    return os << obj.showDetails();
-}
+//std::ostream &operator<<(std::ostream &os, const Product &obj) {
+//    return os << obj.showDetails();
+//};
+
+

@@ -4,12 +4,12 @@
 int Order::generalID = 1;
 
 // Constructor
-Order::Order(const User &buyer, std::vector<std::unique_ptr<Product>> products)
+Order::Order(const User &buyer, const std::vector<Product*> products)
     : ID(generalID++), buyer(buyer)
 {
     // Mut pointerii in vectorul comenzii
     for (auto &p : products)
-        this->products.push_back(std::move(p));
+        this->products.push_back(p);
 
     calculateTotal();
 }
@@ -18,7 +18,7 @@ Order::Order(const User &buyer, std::vector<std::unique_ptr<Product>> products)
 void Order::calculateTotal() {
     totalPrice = 0;
     for (const auto &p : products)
-        totalPrice += p->getPrice() * p->getStock(); // poti ajusta dupa nevoie (ex: cantitate)
+        totalPrice += p -> getPrice() * p -> getStock();
 }
 
 // Getter total

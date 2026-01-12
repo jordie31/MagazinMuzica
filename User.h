@@ -9,7 +9,7 @@ class User {
     std :: string firstName;
     std :: string lastName;
     std :: string email;
-    std :: string role; // angajat, administrator, cumpărător
+    std :: string role; // angajat, administrator, cumparator
 
 public :
     User(const std :: string &first_name, const std :: string &last_name, const std :: string &email, const std :: string &role);

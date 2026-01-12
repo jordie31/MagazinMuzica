@@ -16,11 +16,25 @@ MusicBook::MusicBook(const std::string &name, float price, int stock, int number
 
 MusicBook::~MusicBook() = default;
 
-std::string MusicBook::showDetails() const {
+std::string MusicBook::showDetails()  {
     return "ID: " + std::to_string(getID()) +
            " | Name: " + getName() +
            " | Author: " + author +
            " | Number of Pages: " + std::to_string(numberOfPages) +
            " | Price: " + std::to_string(getPrice()) +
            " | Stock: " + std::to_string(getStock());
-}
+};
+
+
+  // getteri
+std::string MusicBook :: getType()   {
+        return "MusicBook";
+    };
+int MusicBook ::  getNumberOfPages()  { return numberOfPages; };
+
+ std::string  MusicBook :: getAuthor()  { return author; };
+
+    // clone
+std::unique_ptr<Product> MusicBook :: clone() const  {
+        return std::make_unique<MusicBook>(*this);
+    }

@@ -7,22 +7,25 @@ class Media : public Product {
     std::string format; // ex: CD, Vinyl, Caseta
 
 public:
+
+    // constructor
     Media(const std::string &name, float price, int stock, const std::string &format);
 
+    // destructor
     ~Media() override;
 
-    std::string getType() const override {
-        return "Media";
-    }
+    // getteri
+    std::string getType()   ;
 
-    std::unique_ptr<Product> clone() const override {
-        return std::make_unique<Media>(*this);
-    }
+     std::string& getFormat() ;
 
-    std::string showDetails() const override;
+    // clone
+    std::unique_ptr<Product> clone() const  ;
 
-    // Dacă ai nevoie să accesezi formatul:
-    const std::string& getFormat() const { return format; }
+    // functie de show
+    std::string showDetails()  ;
+
+
 };
 
 #endif // MEDIA_H

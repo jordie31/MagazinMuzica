@@ -8,24 +8,25 @@ class MusicBook : public Product {
     std::string author;
 
 public:
-    //constructor
+    // constructor
     MusicBook(const std::string &name, float price, int stock, int numberOfPages, const std::string &author);
 
+    // destructor
     ~MusicBook() override;
 
-    std::string getType() const override {
-        return "MusicBook";
-    }
+    // getteri
+    std::string getType()  ;
 
-    std::unique_ptr<Product> clone() const override {
-        return std::make_unique<MusicBook>(*this);
-    }
+    int getNumberOfPages()  ;
 
-    std::string showDetails() const override;
+     std::string getAuthor()  ;
 
-    //getteri
-    int getNumberOfPages() const { return numberOfPages; }
-    const std::string& getAuthor() const { return author; }
+    // clone
+    std::unique_ptr<Product> clone() const ;
+
+    // functia show
+    std::string showDetails()  ;
+
 };
 
 #endif // MUSICBOOK_H

@@ -31,23 +31,24 @@ public:
     void reduceStock(int amount);
 
     //getteri
-    float getPrice() const;
-    const std :: string &getName() const;
-    int getStock() const;
-    int getID() const;
+    float getPrice() ;
+    const std :: string &getName() ;
+    int getStock() ;
+    int getID() ;
 
     //functii virtuale pt polimorfism
     //returnează tipul obiectului (ex: Instrument, Media, MusicBook)
-    virtual std::string getType() const = 0;
+    virtual std::string getType()  = 0;
 
     //afișare detalii virtuala
-    virtual std::string showDetails() const;
+     virtual std::string showDetails() ;
 
-    //copiere polimorfa (obligatoriu pentru vector<unique_ptr<Product>>)
-    virtual std::unique_ptr<Product> clone() const = 0;
 
     //supraincarcarea operatorului de afisare
-    friend std :: ostream &operator<<(std :: ostream &os, const Product &obj);
+//    friend std :: ostream &operator<<(std :: ostream &os,  Product &obj);
+
+    // declararea virtuala ca sa mearga clasele derivate
+     virtual std::unique_ptr<Product> clone() const = 0;
 };
 
 #endif //OOP_PRODUCT_H

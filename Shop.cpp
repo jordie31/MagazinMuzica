@@ -28,7 +28,7 @@ float Shop::calculateInventoryValue() const {
         total += p->getPrice() * p->getStock();
     return total;
 }
-
+//dynamic cast
 void Shop::ProductTypes() const {
     for (auto &p : products) {
         if (auto inst = dynamic_cast<Instrument*>(p.get()))
