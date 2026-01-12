@@ -2,7 +2,7 @@
 
 // Initializare id static
 int Order::generalID = 1;
-
+Logger Order::logger("log.txt");
 // Constructor
 Order::Order(const User &buyer, const std::vector<Product*> products)
     : ID(generalID++), buyer(buyer)

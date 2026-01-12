@@ -2,12 +2,12 @@
 
 Logger::Logger(std::string fileName){
     this->fileName = fileName;
-    logFile.open(fileName);
+    logFile.open(fileName,std::ios::app);
+    // std::ios::app e ca sa imi puna file pointerul la finalul fisierului
 };
 
 void Logger::log(std::string logMessage) {
-    logFile.seekp (0, std::fstream::end);
-    logFile << logMessage;
+    logFile << logMessage << std :: endl;
 };
 
 
