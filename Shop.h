@@ -25,8 +25,13 @@ public:
 
     float calculateInventoryValue() const;
     void ProductTypes() const;
-
+    std :: string getAddress();
     friend std::ostream &operator<<(std::ostream &os, const Shop &obj);
+
+    //getteri
+    int getProductsLenght();
+    const std::vector<std::unique_ptr<Product>> &getProducts();
+    Product* getProduct(int index);
 };
 
 #endif

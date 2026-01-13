@@ -8,16 +8,21 @@
 #include "MusicBook.h"
 #include "Factory.h"
 #include "Logger.h"
+#include "User.h"
+#include "Product.h"
+#include "Order.h"
 Logger logger("log.txt");
 int main() {
-    logger.log("Text");
+
+    //logger.log("Text");
     std::ifstream fin("tastatura.txt");
     if (!fin) {
-        std::cerr << "Nu pot deschide tastatura.txt\n";
+        std::cerr << "Nu pot deschide fisierul tastatura.txt\n";
         return 1;
     }
-
     Shop shop("Strada Muzicii 10");
+    Shop shop2("Bulevardul Cantecului 5");
+
 
     std::string type;
     while (fin >> type) {
@@ -34,14 +39,14 @@ int main() {
                 float price;
                 int stock;
                 fin >> name >> price >> stock >> material;
-                shop.addProduct(std::make_unique<Instrument>(name, price, stock, material));
+                shop2.addProduct(Factory :: createInstrument(name, price, stock, material));
             }
             else if (type == "MUSICBOOK") {
                 std::string name, author;
                 float price;
                 int stock, pages;
                 fin >> name >> price >> stock >> pages >> author;
-                shop.addProduct(std::make_unique<MusicBook>(name, price, stock, pages, author));
+                shop.addProduct(Factory :: createMusicBook(name, price, stock, pages, author));
             }
             else {
                 std::string rest;
@@ -54,11 +59,99 @@ int main() {
         }
     }
 
-    std::cout << "\n=== Shop ===\n" << shop << "\n";
-    std::cout << "\n=== Tipuri produse (dynamic_cast) ===\n";
-    shop.ProductTypes();
 
-    std::cout << "\nValoarea stocului: " << shop.calculateInventoryValue() << " lei\n";
+
+    int exit = 0;
+    while(exit!=1){
+        std :: cout << "\nBine ati venit!" << std :: endl;
+        std :: string firstName;
+        std :: cout << "Introduceti numele: "; std :: cin >> firstName;
+        std :: string lastName;
+        std :: cout << "Introduceti prenumele: "; std :: cin >> lastName;
+        std :: string email;
+        std :: cout << "Introduceti email-ul: "; std :: cin >> email;
+        std :: string role = "cumparator";
+
+        User user(firstName, lastName, email, role);
+
+        std :: cout << user;
+        int exit2 = 0;
+        while(exit2!=1){
+            std :: cout << "\nAlegeti shopul" << std :: endl;
+            std :: cout << "1) " << shop.getAddress() << std :: endl;
+            std :: cout << "2) " << shop2.getAddress() << std :: endl;
+            // mai multe optiuni
+            int optiune, optiune2;
+            std :: cin >> optiune;
+            std :: vector<Product*> finalProducts;
+            switch (optiune){
+                case 1:
+                while(true){
+                    std :: cout << "Magazinul 1" << std::endl;
+                    std :: cout << "Stocul magazinului: "<< std::endl;
+                    std :: cout << shop << "\n";
+                    std :: cout << "Ce produse doriti sa adaugati in cos? "<< std::endl;
+
+                    const std::vector<std::unique_ptr<Product>>& productList = shop.getProducts();
+                    for (int i = 0; i < shop.getProductsLenght(); i++) {
+                        std :: cout << i + 1 << ")" << productList[i]->getName() << " "
+                             << productList[i]->getPrice() << " lei" << "............ In Stoc: "
+                             << productList[i]->getStock() << std :: endl;
+                    }
+
+                    std :: cout << "0) Confirmare" << std::endl;
+                    std :: cin>>optiune2;
+                    optiune2--;
+
+                    if(optiune2==-1){
+                        Order orderFinal (user, finalProducts);
+                        std :: cout<< orderFinal << std :: endl;
+                        std :: cout << "Multumim, va mai asteptam!" << std :: endl;
+                        return 0;
+                    }
+                    else {
+                        if(optiune2<shop.getProductsLenght()){
+                            finalProducts.push_back(shop.getProduct(optiune2));
+                        }
+                    }
+                }
+                case 2:
+                while(true){
+                    std :: cout << "Magazinul 2" << std::endl;
+                    std :: cout << "Stocul magazinului: "<< std::endl;
+                    std :: cout << shop2 << "\n";
+                    std :: cout << "Ce produse doriti sa adaugati in cos? "<< std::endl;
+
+                    const std::vector<std::unique_ptr<Product>>& productList = shop2.getProducts();
+                    for (int i = 0; i < shop2.getProductsLenght(); i++) {
+                        std :: cout << i + 1 << ")" << productList[i]->getName() <<" "
+                             << productList[i]->getPrice() << " lei" << "............ In Stoc: "
+                             << productList[i]->getStock() << std :: endl;
+                    }
+                    std :: cout << "0) Confirmare" << std::endl;
+                    std :: cin>>optiune2;
+                    optiune2--;
+
+                    if(optiune2==-1){
+                        Order orderFinal (user, finalProducts);
+                        std :: cout<< orderFinal << std :: endl;
+                        std :: cout << "Multumim, va mai asteptam!" << std :: endl;
+                        return 0;
+                    }
+                    else {
+                        if(optiune2<shop2.getProductsLenght()){
+                            finalProducts.push_back(shop2.getProduct(optiune2));
+                        }
+                    }
+                }
+                default:
+                    break;
+            }
+        }
+
+        break;
+    }
+
 
     return 0;
 }

@@ -4,12 +4,12 @@
 int Shop::generalID = 1;
 
 Shop::Shop(const std::string &address)
-    : ID(generalID++), address(address) {}
+    : ID(generalID++), address(address) {};
 
 //adauga produs
 void Shop::addProduct(std::unique_ptr<Product> p) {
     products.push_back(std::move(p));
-}
+};
 
 //sterge produs dupa nume
 /*void Shop::removeProductByName(const std::string &name) {
@@ -19,7 +19,7 @@ void Shop::addProduct(std::unique_ptr<Product> p) {
         else
             ++it;
     }
-}*/
+};*/
 
 //calculeaza pretul total al comenzii
 float Shop::calculateInventoryValue() const {
@@ -27,7 +27,11 @@ float Shop::calculateInventoryValue() const {
     for (const auto &p : products)
         total += p->getPrice() * p->getStock();
     return total;
-}
+};
+
+std :: string Shop :: getAddress()  {
+return address;
+};
 //dynamic cast
 void Shop::ProductTypes() const {
     for (auto &p : products) {
@@ -40,7 +44,7 @@ void Shop::ProductTypes() const {
         else
             std::cout << "Tip necunoscut: " << p->getName() << "\n";
     }
-}
+};
 
 std::ostream &operator<<(std::ostream &os, const Shop &obj) {
     os << "Shop ID: " << obj.ID << "\nAddress: " << obj.address << "\nProducts:\n";
@@ -48,4 +52,20 @@ std::ostream &operator<<(std::ostream &os, const Shop &obj) {
         os << "   " << p->getName() << " (" << p->getType() << ")\n";
     }
     return os;
-}
+};
+
+int Shop :: getProductsLenght(){
+    return products.size();
+};
+
+const std::vector<std::unique_ptr<Product>> &Shop :: getProducts(){
+    return products;
+};
+
+Product* Shop::getProduct(int index) {
+// verific daca exista indexul ala ca sa nu dea out of range
+    if (index >= 0 && index < products.size()) {
+        return products[index].get();
+    }
+    return nullptr;
+};
