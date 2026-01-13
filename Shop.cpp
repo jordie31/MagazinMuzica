@@ -62,7 +62,7 @@ const std::vector<std::unique_ptr<Product>> &Shop :: getProducts(){
     return products;
 };
 
-Product* Shop::getProduct(int index) {
+Product* Shop::getProduct(std::vector<std::unique_ptr<Product>>::size_type index) {
 // verific daca exista indexul ala ca sa nu dea out of range
     if (index >= 0 && index < products.size()) {
         return products[index].get();

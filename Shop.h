@@ -31,7 +31,7 @@ public:
     //getteri
     int getProductsLenght();
     const std::vector<std::unique_ptr<Product>> &getProducts();
-    Product* getProduct(int index);
+    Product* getProduct(std::vector<std::unique_ptr<Product>>::size_type index);
 };
 
 #endif
