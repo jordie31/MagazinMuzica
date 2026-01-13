@@ -3,3 +3,4 @@ INSTRUMENT Chitara 350 5 Lemn
 MUSICBOOK Teorie 40 15 120 Popescu
 MEDIA CasetaVeche 30 2 Caseta
 INSTRUMENT Pian 5000 1 Metal
+MUSICBOOK Istorie 40 5 255 Mihalescu

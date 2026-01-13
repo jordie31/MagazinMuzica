@@ -20,9 +20,9 @@ int main() {
         std::cerr << "Nu pot deschide fisierul tastatura.txt\n";
         return 1;
     }
+
     Shop shop("Strada Muzicii 10");
     Shop shop2("Bulevardul Cantecului 5");
-
 
     std::string type;
     while (fin >> type) {
@@ -60,7 +60,6 @@ int main() {
     }
 
 
-
     int exit = 0;
     while(exit!=1){
         std :: cout << "\nBine ati venit!" << std :: endl;
@@ -88,7 +87,6 @@ int main() {
                 case 1:
                 while(true){
                     std :: cout << "Magazinul 1" << std::endl;
-                    std :: cout << "Stocul magazinului: "<< std::endl;
                     std :: cout << shop << "\n";
                     std :: cout << "Ce produse doriti sa adaugati in cos? "<< std::endl;
 
@@ -118,7 +116,6 @@ int main() {
                 case 2:
                 while(true){
                     std :: cout << "Magazinul 2" << std::endl;
-                    std :: cout << "Stocul magazinului: "<< std::endl;
                     std :: cout << shop2 << "\n";
                     std :: cout << "Ce produse doriti sa adaugati in cos? "<< std::endl;
 
